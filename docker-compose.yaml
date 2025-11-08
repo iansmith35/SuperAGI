@@ -9,7 +9,10 @@ services:
       - super__postgres
     networks:
       - super_network
+    environment:
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
     command: ["/app/wait-for-it.sh", "super__postgres:5432","-t","60","--","/app/entrypoint.sh"]
+
   celery:
     volumes:
       - "./:/app"
@@ -20,7 +23,10 @@ services:
       - super__postgres
     networks:
       - super_network
+    environment:
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
     command: ["/app/entrypoint_celery.sh"]
+
   gui:
     build:
       context: ./gui
@@ -32,11 +38,11 @@ services:
 #      - ./gui:/app
 #      - /app/node_modules/
 #      - /app/.next/
+
   super__redis:
     image: "redis/redis-stack-server:latest"
     networks:
       - super_network
-#    uncomment to expose redis port to host
 #    ports:
 #      - "6379:6379"
     volumes:
@@ -52,7 +58,6 @@ services:
       - superagi_postgres_data:/var/lib/postgresql/data/
     networks:
       - super_network
-#    uncomment to expose postgres port to host
 #    ports:
 #      - "5432:5432"
 
@@ -71,6 +76,7 @@ services:
 networks:
   super_network:
     driver: bridge
+
 volumes:
   superagi_postgres_data:
   redis_data:
