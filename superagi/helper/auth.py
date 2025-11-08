@@ -9,6 +9,7 @@ from superagi.models.user import User
 from superagi.models.api_key import ApiKey
 from typing import Optional
 from sqlalchemy import or_
+from fastapi import Request
 
 
 def check_auth(Authorize: AuthJWT = Depends()):

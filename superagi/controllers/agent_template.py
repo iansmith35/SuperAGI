@@ -418,7 +418,8 @@ def fetch_agent_config_from_template(agent_template_id: int,
 
 
 @router.post("/publish_template/agent_execution_id/{agent_execution_id}", status_code=201)
-def publish_template(agent_execution_id: str, organisation=Depends(get_user_organisation), user=Depends(get_current_user)):
+def publish_template(agent_execution_id: str, organisation=None, user=None):
+
 
     """
     Publish an agent execution as a template.
@@ -478,15 +479,15 @@ def publish_template(agent_execution_id: str, organisation=Depends(get_user_orga
     db.session.flush()
     return agent_template.to_dict()
 
-@router.post("/publish_template", status_code=201)
-def handle_publish_template(updated_details: AgentPublish, organisation=Depends(get_user_organisation), user=Depends(get_current_user)):
-    
+@router.post("/handle_publish_template", status_code=201)
+def handle_publish_template(updated_details: AgentPublish, organisation=None, user=None):
     """
-    Publish a template from edit template page.
+    Publish an agent execution as a template.
 
     Args:
-        organisation (Depends): Dependency to get the user organisation.
-        user (Depends): Dependency to get the user.
+        updated_details (AgentPublish): The agent execution to save as a template.
+        organisation (Optional): The organisation of the user.
+        user (Optional): The user performing the action.
 
     Returns:
         dict: The saved agent template.
@@ -494,18 +495,23 @@ def handle_publish_template(updated_details: AgentPublish, organisation=Depends(
     Raises:
         HTTPException (status_code=404): If the agent template or workflow are not found.
     """
-
     old_template_id = updated_details.agent_template_id
-    old_agent_template = db.session.query(AgentTemplate).filter(AgentTemplate.id==old_template_id, AgentTemplate.organisation_id==organisation.id).first()
+    old_agent_template = db.session.query(AgentTemplate).filter(
+        AgentTemplate.id == old_template_id,
+        AgentTemplate.organisation_id == organisation.id
+    ).first()
     if old_agent_template is None:
-        raise HTTPException(status_code = 404, detail = "Agent Template not found")
+        raise HTTPException(status_code=404, detail="Agent Template not found")
     agent_workflow_id = old_agent_template.agent_workflow_id
     if agent_workflow_id is None:
-        raise HTTPException(status_code = 404, detail = "Agent Workflow not found")
-    
-    agent_template = AgentTemplate(name=updated_details.name, description=updated_details.description,
-                                   agent_workflow_id=agent_workflow_id,
-                                   organisation_id=organisation.id)
+        raise HTTPException(status_code=404, detail="Agent Workflow not found")
+
+    agent_template = AgentTemplate(
+        name=updated_details.name,
+        description=updated_details.description,
+        agent_workflow_id=agent_workflow_id,
+        organisation_id=organisation.id
+    )
     db.session.add(agent_template)
     db.session.commit()
 
@@ -525,16 +531,21 @@ def handle_publish_template(updated_details: AgentPublish, organisation=Depends(
         "knowledge": updated_details.knowledge
     }
 
+    return None
+
     for key, value in agent_template_configs.items():
         if key == "tools":
             value = Tool.convert_tool_ids_to_names(db, value)
-        agent_template_config = AgentTemplateConfig(agent_template_id=agent_template.id, key=key, value=str(value))
+        agent_template_config = AgentTemplateConfig(
+            agent_template_id=agent_template.id, key=key, value=str(value)
+        )
         db.session.add(agent_template_config)
 
     agent_template_configs = [
-    AgentTemplateConfig(agent_template_id=agent_template.id, key="status", value="UNDER REVIEW"),
-    AgentTemplateConfig(agent_template_id=agent_template.id, key="Contributor Name", value=user.name),
-    AgentTemplateConfig(agent_template_id=agent_template.id, key="Contributor Email", value=user.email)]
+        AgentTemplateConfig(agent_template_id=agent_template.id, key="status", value="UNDER REVIEW"),
+        AgentTemplateConfig(agent_template_id=agent_template.id, key="Contributor Name", value=user.name),
+        AgentTemplateConfig(agent_template_id=agent_template.id, key="Contributor Email", value=user.email)
+    ]
     db.session.add_all(agent_template_configs)
 
     db.session.commit()
