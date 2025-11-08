@@ -12,6 +12,7 @@ services:
     env_file:
       - .env
     environment:
+      - DATABASE_URL=postgresql://superagi:password@super__postgres:5432/super_agi_main
       - POSTGRES_USER=superagi
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=super_agi_main
@@ -31,6 +32,7 @@ services:
     env_file:
       - .env
     environment:
+      - DATABASE_URL=postgresql://superagi:password@super__postgres:5432/super_agi_main
       - POSTGRES_USER=superagi
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=super_agi_main
