@@ -15,5 +15,8 @@ if ! [[ "$PORT" =~ ^[0-9]+$ ]]; then
   PORT=8000
 fi
 
+# Print env for debugging (temporary)
+echo "STARTING with PORT='$PORT' HOST='$HOST' APP_MODULE='$APP_MODULE'" >&2
+
 # Exec uvicorn with proxy headers enabled for proper remote address / protocol handling behind Railway's proxy
 exec uvicorn "$APP_MODULE" --host "$HOST" --port "$PORT" --proxy-headers --forwarded-allow-ips="*"
