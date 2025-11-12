@@ -1,4 +1,7 @@
 {
+  "name": "ishe-group",
+  "version": "0.1.0",
+  "description": "ISHE Group UI assets and frontend for the Autonomous AI agent platform (fork of SuperAGI)",
   "dependencies": {
     "axios": "^1.4.0",
     "react-toastify": "^9.1.3"

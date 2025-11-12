@@ -12,7 +12,9 @@ ENV PATH="/opt/venv/bin:$PATH"
 
 COPY requirements.txt .
 RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+    pip install --no-cache-dir -r requirements.txt && \
+    # Force a compatible typing-extensions version to avoid resolver conflicts
+    pip install --no-cache-dir "typing-extensions==4.5.0"
 
 RUN python3.10 -c "import nltk; nltk.download('punkt')" && \
   python3.10 -c "import nltk; nltk.download('averaged_perceptron_tagger')"

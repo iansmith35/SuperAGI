@@ -1,14 +1,6 @@
-<p align="center">
-  <a href="https://superagi.com//#gh-light-mode-only">
-    <img src="https://superagi.com/wp-content/uploads/2023/05/Logo-dark.svg" width="318px" alt="SuperAGI logo" />
-  </a>
-  <a href="https://superagi.com//#gh-dark-mode-only">
-    <img src="https://superagi.com/wp-content/uploads/2023/05/Logo-light.svg" width="318px" alt="SuperAGI logo" />
-  </a>
+<h1 align="center">ISHE Group</h1>
 
-</p>
-
-<p align="center"><i>Open-source framework to build, manage and run useful Autonomous AI Agents</i></p>
+<p align="center"><i>ISHE Group — Autonomous AI agent platform (forked from SuperAGI)</i></p>
     
 
 <p align="center">
