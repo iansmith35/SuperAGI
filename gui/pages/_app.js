@@ -35,7 +35,7 @@ export default function App() {
   const [userName, setUserName] = useState('');
   const [organisationId, setOrganisationId] = useState(null);
   const [env, setEnv] = useState('DEV');
-  const [loadingText, setLoadingText] = useState("Initializing SuperAGI");
+  const [loadingText, setLoadingText] = useState("Initializing ISHE Group");
   const router = useRouter();
   const [showMarketplace, setShowMarketplace] = useState(false);
   const excludedKeys = [
@@ -104,8 +104,8 @@ export default function App() {
   }
 
   useEffect(() => {
-    handleMarketplace()
-    loadingTextEffect('Initializing SuperAGI', setLoadingText, 500);
+  handleMarketplace()
+  loadingTextEffect('Initializing ISHE Group', setLoadingText, 500);
 
     checkEnvironment()
       .then((response) => {
@@ -218,7 +218,7 @@ export default function App() {
 
   const handleLocalEnviroment = () => {
     const userData = {
-      "name": "SuperAGI User",
+      "name": "ISHE Group User",
       "email": "super6@agi.com",
       "password": "pass@123",
     }
@@ -270,7 +270,7 @@ export default function App() {
   return (
     <div className="app">
       <Head>
-        <title>SuperAGI</title>
+        <title>ISHE Group</title>
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet"/>
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
@@ -302,7 +302,7 @@ export default function App() {
               <Image width={20} height={20} src="/images/github.svg" alt="github"/>&nbsp;Continue with Github
             </button>
             <div className="signInInfo">
-              By continuing, you agree to Super AGI’s Terms of Service and Privacy Policy, and to receive important
+              By continuing, you agree to ISHE Group’s Terms of Service and Privacy Policy, and to receive important
               updates.
             </div>
           </div> : <div className="signInWrapper" style={{background: 'transparent'}}>
