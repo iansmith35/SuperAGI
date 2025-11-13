@@ -22,9 +22,9 @@ export default function TopBar({selectedProject, userName, env}) {
     }
     getUserClick('Logged Out',{})
     // localStorage.removeItem('accessToken');
-    Cookies.set('accessToken', '', { expires: new Date(0),domain: '.superagi.com', path: '/'});
-    Cookies.set('Source', 'app.superagi', {domain: '.superagi.com', path: '/'});
-    Cookies.set('mixpanel_initialized', 'false', {domain: '.superagi.com', path: '/'});
+    Cookies.set('accessToken', '', { expires: new Date(0), path: '/'});
+    Cookies.set('Source', 'ishe.group', {path: '/'});
+    Cookies.set('mixpanel_initialized', 'false', {path: '/'});
     refreshUrl();
     router.reload();
   };
@@ -79,7 +79,7 @@ export default function TopBar({selectedProject, userName, env}) {
       </div>
       <div className="top_right">
         <div className="horizontal_container gap_20">
-          <div className="horizontal_container w_fit_content cursor_pointer gap_4" onClick={() => {window.open("https://superagi.com/docs", "_blank"); getUserClick('SuperAGI Docs Visited', {})}}>
+          <div className="horizontal_container w_fit_content cursor_pointer gap_4" onClick={() => {window.open("https://github.com/iansmith35/SuperAGI/blob/main/GOOGLE_INTEGRATION_GUIDE.md", "_blank"); getUserClick('Docs Visited', {})}}>
             <Image width={20} height={20} src="/images/docs_icon.svg" alt="docs-icon" />
             <p className="top_bar_font">Docs</p>
           </div>

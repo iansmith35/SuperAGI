@@ -1,61 +1,255 @@
 <p align="center">
-  <a href="https://superagi.com//#gh-light-mode-only">
-    <img src="https://superagi.com/wp-content/uploads/2023/05/Logo-dark.svg" width="318px" alt="SuperAGI logo" />
-  </a>
-  <a href="https://superagi.com//#gh-dark-mode-only">
-    <img src="https://superagi.com/wp-content/uploads/2023/05/Logo-light.svg" width="318px" alt="SuperAGI logo" />
-  </a>
-
+  <h1 align="center">ISHE Group AI Platform</h1>
 </p>
 
-<p align="center"><i>Open-source framework to build, manage and run useful Autonomous AI Agents</i></p>
+<p align="center"><i>Enterprise AI Agent Platform - Powered by Google Cloud & Workspace Integration</i></p>
     
 
 <p align="center">
-<a href="https://superagi.com"> <img src="https://superagi.com/wp-content/uploads/2023/08/Website.svg"></a>
-<a href="https://app.superagi.com"> <img src="https://superagi.com/wp-content/uploads/2023/07/Cloud.svg"></a>
-<a href="https://marketplace.superagi.com/"> <img src="https://superagi.com/wp-content/uploads/2023/08/Marketplace.svg"></a>
-<a href="https://superagi.com/docs/"> <img src="https://superagi.com/wp-content/uploads/2023/08/Docs.svg"></a>
-<a href="https://documenter.getpostman.com/view/28438662/2s9Xy6rqP5"> <img src="https://superagi.com/wp-content/uploads/2023/08/APIs.svg"></a>
-</p>
-
-<p align="center">
-<a href="https://github.com/TransformerOptimus/SuperAGI/fork" target="blank">
-<img src="https://img.shields.io/github/forks/TransformerOptimus/SuperAGI?style=for-the-badge" alt="SuperAGI forks"/>
+<a href="https://github.com/iansmith35/SuperAGI" target="blank">
+<img src="https://img.shields.io/github/forks/iansmith35/SuperAGI?style=for-the-badge" alt="ISHE Group forks"/>
 </a>
-
-<a href="https://github.com/TransformerOptimus/SuperAGI/stargazers" target="blank">
-<img src="https://img.shields.io/github/stars/TransformerOptimus/SuperAGI?style=for-the-badge" alt="SuperAGI stars"/>
-</a>
-<a href='https://github.com/TransformerOptimus/SuperAGI/releases'>
-<img src='https://img.shields.io/github/release/TransformerOptimus/SuperAGI?&label=Latest&style=for-the-badge'>
-</a>
-
-<a href="https://github.com/TransformerOptimus/SuperAGI/commits" target="blank">
-<img src="https://img.shields.io/github/commits-since/TransformerOptimus/SuperAGI/v0.0.11.svg?style=for-the-badge" alt="SuperAGI Commits"/>
+<a href="https://github.com/iansmith35/SuperAGI/stargazers" target="blank">
+<img src="https://img.shields.io/github/stars/iansmith35/SuperAGI?style=for-the-badge" alt="ISHE Group stars"/>
 </a>
 </p>
 
-<p align="center"><b>Follow SuperAGI </b></p>
+<p align="center"><b>🔐 Secure Google Authentication | ☁️ Google Cloud Native | 🔗 Full Workspace Integration</b></p>
+
+---
+
+## 🚀 Quick Start
+
+Get started in 5 minutes with Google authentication:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/iansmith35/SuperAGI.git
+cd SuperAGI
+
+# 2. Run automated setup
+./setup_google_auth.sh
+
+# 3. Start the platform
+docker-compose up
+```
+
+**📖 Full Guide**: [QUICK_START.md](QUICK_START.md)
+
+## ✨ Key Features
+
+### 🔐 Google OAuth Authentication
+- **One-click sign-in** with your Google account
+- No password management required
+- Secure OAuth 2.0 implementation
+- Auto-sync with Google profile
+
+### ☁️ Google Cloud Integration
+- **Gmail API**: Send, receive, and manage emails
+- **Google Calendar**: Schedule and manage events
+- **Google Drive**: Store and share files
+- **Cloud Storage**: Scalable file storage
+- **Cloud Run**: Serverless deployment ready
+
+### 🤖 AI Agent Platform
+- Build and deploy autonomous AI agents
+- Multi-model support (OpenAI, Google PaLM, etc.)
+- Tool integration and workflow automation
+- Resource management and execution tracking
+
+### 🔧 Enterprise Ready
+- PostgreSQL & Redis support
+- Docker containerization
+- Railway.app deployment ready
+- Comprehensive logging and monitoring
+
+## 📋 Prerequisites
+
+- **Google Account** (Gmail)
+- **Google Cloud Platform** account ([free tier](https://cloud.google.com/free))
+- Docker & Docker Compose OR Python 3.10+
+- Node.js 16+ (for frontend)
+
+## 🎯 Setup Google Authentication
+
+### Step 1: Google Cloud Console Setup
+
+1. **Create a Project** in [Google Cloud Console](https://console.cloud.google.com)
+2. **Enable APIs**:
+   - Google+ API
+   - Gmail API
+   - Google Calendar API
+   - Google Drive API
+3. **Create OAuth 2.0 Credentials**:
+   - Application type: Web application
+   - Authorized redirect URIs: `http://localhost:3000/api/google/oauth-callback`
+4. **Download credentials** (Client ID & Secret)
+
+**📖 Detailed Guide**: [GOOGLE_INTEGRATION_GUIDE.md](GOOGLE_INTEGRATION_GUIDE.md)
+
+### Step 2: Configure Application
+
+Run the automated setup:
+
+```bash
+./setup_google_auth.sh
+```
+
+Or manually edit `config.yaml`:
+
+```yaml
+GOOGLE_CLIENT_ID: your-client-id.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET: your-client-secret
+GOOGLE_REDIRECT_URI: "http://localhost:3000/api/google/oauth-callback"
+```
+
+### Step 3: Launch Platform
+
+```bash
+# Option 1: Docker (Recommended)
+docker-compose up
+
+# Option 2: Manual
+# Terminal 1: Backend
+uvicorn main:app --host 0.0.0.0 --port 8001 --reload
+
+# Terminal 2: Frontend
+cd gui && npm install && npm run dev
+```
+
+### Step 4: Sign In
+
+1. Open `http://localhost:3000`
+2. Click **"Sign in with Google"**
+3. Authorize with your Google account
+4. Start building! 🎉
+
+## 🌟 What You Get
+
+### Out-of-the-Box Integrations
+
+| Service | Features |
+|---------|----------|
+| **Gmail** | Send/receive emails, search, drafts, labels |
+| **Calendar** | View/create events, check availability, invitations |
+| **Drive** | Upload/download files, sharing, search |
+| **Cloud Storage** | Scalable file storage, CDN integration |
+| **OAuth** | Secure authentication, no password management |
+
+### Platform Capabilities
+
+- 🤖 **AI Agents**: Create autonomous agents for any task
+- 🔄 **Workflows**: Build complex automation pipelines
+- 📊 **Analytics**: Track performance and metrics
+- 🛠️ **Tools**: Extensible toolkit system
+- 📁 **Resources**: Manage files and data
+- 👥 **Multi-user**: Organization and project management
+
+## 🚀 Deployment
+
+### Deploy to Railway (Recommended)
+
+```bash
+# 1. Push to GitHub
+git push origin main
+
+# 2. Connect to Railway.app
+# 3. Add PostgreSQL and Redis services
+# 4. Configure environment variables
+```
+
+**📖 Deployment Guide**: [RAILWAY_DEPLOY.md](RAILWAY_DEPLOY.md)
+
+### Google Cloud Run Deployment
+
+```bash
+# Build and deploy
+gcloud run deploy ishe-group-platform \
+  --source . \
+  --region us-central1 \
+  --allow-unauthenticated
+```
+
+## 📚 Documentation
+
+- **[🚀 Quick Start Guide](QUICK_START.md)** - Get up and running in minutes
+- **[🔐 Google Integration Guide](GOOGLE_INTEGRATION_GUIDE.md)** - Complete Google setup
+- **[☁️ Railway Deployment](RAILWAY_DEPLOY.md)** - Production deployment
+- **[⚙️ Configuration](config_template.yaml)** - Environment settings
+
+## 🔒 Security
+
+- ✅ OAuth 2.0 secure authentication
+- ✅ JWT token-based sessions
+- ✅ Encrypted credentials storage
+- ✅ Environment-based configuration
+- ✅ No passwords stored
+- ✅ Google's security infrastructure
+
+**Important**: Never commit `config.yaml`, `.env`, or service account keys to version control.
+
+## 🛠️ Architecture
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    ISHE Group Platform                   │
+├─────────────────────────────────────────────────────────┤
+│  Frontend (Next.js)                                     │
+│  ├─ Google OAuth Sign-In                                │
+│  ├─ Agent Management UI                                 │
+│  └─ Resource Dashboard                                  │
+├─────────────────────────────────────────────────────────┤
+│  Backend (FastAPI)                                      │
+│  ├─ Google OAuth Controller                             │
+│  ├─ Agent Execution Engine                              │
+│  ├─ Tool Manager                                        │
+│  └─ API Routes                                          │
+├─────────────────────────────────────────────────────────┤
+│  Google Cloud Services                                  │
+│  ├─ OAuth 2.0 Authentication                            │
+│  ├─ Gmail API                                           │
+│  ├─ Calendar API                                        │
+│  ├─ Drive API                                           │
+│  └─ Cloud Storage                                       │
+├─────────────────────────────────────────────────────────┤
+│  Data Layer                                             │
+│  ├─ PostgreSQL (User data, agents, workflows)          │
+│  ├─ Redis (Caching, task queue)                        │
+│  └─ Vector DB (Embeddings, knowledge base)             │
+└─────────────────────────────────────────────────────────┘
+```
+
+## 🤝 Contributing
+
+We welcome contributions! Please:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🆘 Support
+
+- **Documentation**: Check our comprehensive guides
+- **Issues**: [GitHub Issues](https://github.com/iansmith35/SuperAGI/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/iansmith35/SuperAGI/discussions)
+
+## 🙏 Acknowledgments
+
+Built on the foundation of SuperAGI, enhanced with enterprise Google Cloud integration for seamless authentication and workspace connectivity.
+
+---
 
 <p align="center">
-<a href="https://twitter.com/_superAGI" target="blank">
-<img src="https://img.shields.io/twitter/follow/_superAGI?label=Follow: _superAGI&style=social" alt="Follow _superAGI"/>
-</a>
-<a href="https://www.reddit.com/r/Super_AGI" target="_blank"><img src="https://img.shields.io/twitter/url?label=/r/Super_AGI&logo=reddit&style=social&url=https://github.com/TransformerOptimus/SuperAGI"/></a>
-
-<a href="https://discord.gg/dXbRe5BHJC" target="blank">
-<img src="https://img.shields.io/discord/1107593006032355359?label=Join%20SuperAGI&logo=discord&style=social" alt="Join SuperAGI Discord Community"/>
-</a>
-<a href="https://www.youtube.com/@_superagi" target="_blank"><img src="https://img.shields.io/twitter/url?label=Youtube&logo=youtube&style=social&url=https://github.com/TransformerOptimus/SuperAGI"/></a>
+  <b>🔐 Sign in with Google | ☁️ Deploy to Cloud | 🤖 Build AI Agents</b>
 </p>
 
-<p align="center"><b>Connect with the Creator </b></p>
-
 <p align="center">
-<a href="https://twitter.com/ishaanbhola" target="blank">
-<img src="https://img.shields.io/twitter/follow/ishaanbhola?label=Follow: ishaanbhola&style=social" alt="Follow ishaanbhola"/>
-</a>
+  Made with ❤️ by ISHE Group
 </p>
 
 <p align="center"><b>Share SuperAGI Repository</b></p>

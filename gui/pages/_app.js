@@ -35,7 +35,7 @@ export default function App() {
   const [userName, setUserName] = useState('');
   const [organisationId, setOrganisationId] = useState(null);
   const [env, setEnv] = useState('DEV');
-  const [loadingText, setLoadingText] = useState("Initializing SuperAGI");
+  const [loadingText, setLoadingText] = useState("Initializing ISHE Group Platform");
   const router = useRouter();
   const [showMarketplace, setShowMarketplace] = useState(false);
   const excludedKeys = [
@@ -105,7 +105,7 @@ export default function App() {
 
   useEffect(() => {
     handleMarketplace()
-    loadingTextEffect('Initializing SuperAGI', setLoadingText, 500);
+    loadingTextEffect('Initializing ISHE Group Platform', setLoadingText, 500);
 
     checkEnvironment()
       .then((response) => {

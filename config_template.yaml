@@ -50,10 +50,19 @@ ENV: 'DEV' #DEV,PROD, to use GITHUB OAUTH set to PROD
 JWT_SECRET_KEY: 'secret'
 expiry_time_hours: 1
 
+#GOOGLE OAUTH (Primary Authentication):
+GOOGLE_CLIENT_ID: YOUR_GOOGLE_CLIENT_ID
+GOOGLE_CLIENT_SECRET: YOUR_GOOGLE_CLIENT_SECRET
+GOOGLE_REDIRECT_URI: "http://localhost:3000/api/google/oauth-callback"
+
 #GITHUB OAUTH:
 GITHUB_CLIENT_ID:
 GITHUB_CLIENT_SECRET:
 FRONTEND_URL: "http://localhost:3000"
+
+#GOOGLE CLOUD PLATFORM:
+GOOGLE_CLOUD_PROJECT_ID: YOUR_GCP_PROJECT_ID
+GOOGLE_APPLICATION_CREDENTIALS: /app/credentials/google-cloud-key.json
 
 #ENCRYPTION KEY, Replace this with your own key for production
 ENCRYPTION_KEY: abcdefghijklmnopqrstuvwxyz123456

@@ -1,9 +1,20 @@
-# Railway Deployment Guide for SuperAGI
+# Railway Deployment Guide for ISHE Group AI Platform
 
 ## Prerequisites
 - Railway account (https://railway.app)
 - GitHub repository connected to Railway
+- Google Cloud Platform account with OAuth credentials configured
 - Required API keys for OpenAI, Pinecone, etc.
+
+## Important: Google Authentication Setup
+
+**This platform uses Google OAuth as the primary authentication method.**
+
+Before deploying, you MUST:
+1. Complete the Google Cloud setup in `GOOGLE_INTEGRATION_GUIDE.md`
+2. Obtain your Google OAuth Client ID and Client Secret
+3. Configure OAuth consent screen in Google Cloud Console
+4. Add Railway redirect URIs to Google OAuth credentials
 
 ## Deployment Steps
 
@@ -11,10 +22,10 @@
 1. Go to https://railway.app
 2. Click "New Project"
 3. Select "Deploy from GitHub repo"
-4. Choose your SuperAGI repository
+4. Choose your ISHE Group repository
 
 ### 2. Add Required Services
-Your SuperAGI application needs the following services:
+Your ISHE Group AI Platform needs the following services:
 
 #### PostgreSQL Database
 1. Click "New" → "Database" → "Add PostgreSQL"
@@ -27,7 +38,15 @@ Your SuperAGI application needs the following services:
 ### 3. Configure Environment Variables
 Go to your main service and add these variables:
 
-#### Required Variables
+#### Required - Google OAuth (CRITICAL!)
+```
+# Get these from Google Cloud Console (see GOOGLE_INTEGRATION_GUIDE.md)
+GOOGLE_CLIENT_ID=your-client-id.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=your-client-secret
+GOOGLE_REDIRECT_URI=https://${{RAILWAY_PUBLIC_DOMAIN}}/api/google/oauth-callback
+```
+
+#### Required - Database Configuration
 ```
 # Database (auto-set by Railway when you add PostgreSQL)
 DB_NAME=railway

@@ -26,6 +26,7 @@ from superagi.controllers.organisation import router as organisation_router
 from superagi.controllers.project import router as project_router
 from superagi.controllers.twitter_oauth import router as twitter_oauth_router
 from superagi.controllers.google_oauth import router as google_oauth_router
+from superagi.controllers.google_auth import router as google_auth_router
 from superagi.controllers.resources import router as resources_router
 from superagi.controllers.tool import router as tool_router
 from superagi.controllers.tool_config import router as tool_config_router
@@ -123,6 +124,7 @@ app.include_router(config_router, prefix="/configs")
 app.include_router(agent_template_router, prefix="/agent_templates")
 app.include_router(agent_workflow_router, prefix="/agent_workflows")
 app.include_router(twitter_oauth_router, prefix="/twitter")
+app.include_router(google_auth_router, prefix="/google-auth")
 app.include_router(agent_execution_config, prefix="/agent_executions_configs")
 app.include_router(analytics_router, prefix="/analytics")
 app.include_router(models_controller_router, prefix="/models_controller")
