@@ -1,15 +1,7 @@
-<h1 align="center">ISHE Group</h1>
+<h1 align="center">ISHE Group AI Platform</h1>
 
-<p align="center"><i>ISHE Group — Autonomous AI agent platform (forked from SuperAGI)</i></p>
-    
-
-<p align="center">
-<a href="https://superagi.com"> <img src="https://superagi.com/wp-content/uploads/2023/08/Website.svg"></a>
-<a href="https://app.superagi.com"> <img src="https://superagi.com/wp-content/uploads/2023/07/Cloud.svg"></a>
-<a href="https://marketplace.superagi.com/"> <img src="https://superagi.com/wp-content/uploads/2023/08/Marketplace.svg"></a>
-<a href="https://superagi.com/docs/"> <img src="https://superagi.com/wp-content/uploads/2023/08/Docs.svg"></a>
-<a href="https://documenter.getpostman.com/view/28438662/2s9Xy6rqP5"> <img src="https://superagi.com/wp-content/uploads/2023/08/APIs.svg"></a>
-</p>
+<p align="center"><i>Enterprise Autonomous AI Agent Platform — Built on SuperAGI Framework</i></p>
+<p align="center"><b>Powered by Railway.com | Memory by Supabase</b></p>
 
 <p align="center">
 <a href="https://github.com/TransformerOptimus/SuperAGI/fork" target="blank">
@@ -28,26 +20,11 @@
 </a>
 </p>
 
-<p align="center"><b>Follow SuperAGI </b></p>
+<p align="center"><b>ISHE Group Enterprise AI Solutions</b></p>
 
 <p align="center">
-<a href="https://twitter.com/_superAGI" target="blank">
-<img src="https://img.shields.io/twitter/follow/_superAGI?label=Follow: _superAGI&style=social" alt="Follow _superAGI"/>
-</a>
-<a href="https://www.reddit.com/r/Super_AGI" target="_blank"><img src="https://img.shields.io/twitter/url?label=/r/Super_AGI&logo=reddit&style=social&url=https://github.com/TransformerOptimus/SuperAGI"/></a>
-
-<a href="https://discord.gg/dXbRe5BHJC" target="blank">
-<img src="https://img.shields.io/discord/1107593006032355359?label=Join%20SuperAGI&logo=discord&style=social" alt="Join SuperAGI Discord Community"/>
-</a>
-<a href="https://www.youtube.com/@_superagi" target="_blank"><img src="https://img.shields.io/twitter/url?label=Youtube&logo=youtube&style=social&url=https://github.com/TransformerOptimus/SuperAGI"/></a>
-</p>
-
-<p align="center"><b>Connect with the Creator </b></p>
-
-<p align="center">
-<a href="https://twitter.com/ishaanbhola" target="blank">
-<img src="https://img.shields.io/twitter/follow/ishaanbhola?label=Follow: ishaanbhola&style=social" alt="Follow ishaanbhola"/>
-</a>
+<i>Autonomous AI agents with human names for CRM departments</i><br>
+<i>Deploy anywhere with Railway.com • Persistent memory with Supabase</i>
 </p>
 
 <p align="center"><b>Share SuperAGI Repository</b></p>
@@ -66,9 +43,19 @@
 
 <hr>
 
-## What are we ?
+## ISHE Group AI Platform
 
-A dev-first open source autonomous AI agent framework enabling developers to build, manage & run useful autonomous agents. You can run concurrent agents seamlessly, extend agent capabilities with tools. The agents efficiently perform a variety of tasks and continually improve their performance with each subsequent run.
+An enterprise-ready autonomous AI agent platform for building intelligent CRM systems. Each agent is designed as a virtual employee with a human name, assigned to specific departments. The platform runs autonomously on Railway.com with persistent memory powered by Supabase.
+
+### 🚀 Quick Deploy to Railway
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template)
+
+The platform comes pre-configured with:
+- **Supabase Integration** - Persistent agent memory and knowledge storage
+- **Railway Token** - Autonomous deployment and scaling
+- **Department Agents** - Pre-configured CRM agents with human names
+- **Production Ready** - Docker-based deployment with health checks
 
 
 ### 💡 Features
@@ -93,15 +80,36 @@ Toolkits allow SuperAGI Agents to interact with external systems and third-party
 
 You can install superAGI using one of the following three approaches.
 
-#### ☁️ SuperAGI cloud
+#### ☁️ Railway Deployment (Recommended)
 
-To quickly start experimenting with agents without the hassle of setting up the system, try [Superagi Cloud](https://app.superagi.com/)
+**One-Click Deploy:**
 
-1. Visit [Superagi Cloud](https://app.superagi.com/) and log in using your github account.
+1. Click the "Deploy on Railway" button above
+2. Connect your GitHub repository
+3. Add required environment variables (see below)
+4. Railway will automatically build and deploy
 
-2. In your account settings, go to "Model Providers" and add your API key.
+**Required Environment Variables:**
+```bash
+# Railway Token (for autonomous operations)
+RAILWAY_TOKEN=your_railway_token_here
 
-You're all set! Start running your agents effortlessly.
+# Supabase Configuration
+SUPABASE_URL=your_supabase_project_url
+SUPABASE_KEY=your_supabase_anon_key
+DATABASE_URL=postgresql://postgres:[PASSWORD]@db.[PROJECT].supabase.co:5432/postgres
+
+# OpenAI API Key
+OPENAI_API_KEY=your_openai_api_key
+
+# JWT Secret (generate random string)
+JWT_SECRET_KEY=your_secure_random_string
+
+# Frontend URL (provided by Railway)
+FRONTEND_URL=https://your-app.railway.app
+```
+
+You're all set! Your ISHE Group AI agents will be running autonomously.
 
 #### 🖥️ Local
 

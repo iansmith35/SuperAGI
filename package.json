@@ -1,7 +1,23 @@
 {
-  "name": "ishe-group",
-  "version": "0.1.0",
-  "description": "ISHE Group UI assets and frontend for the Autonomous AI agent platform (fork of SuperAGI)",
+  "name": "ishe-group-ai-platform",
+  "version": "1.0.0",
+  "description": "ISHE Group Enterprise AI Platform - Autonomous AI agents with Supabase memory and Railway deployment",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iansmith35/SuperAGI.git"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "autonomous",
+    "crm",
+    "ishe-group",
+    "railway",
+    "supabase",
+    "enterprise"
+  ],
+  "author": "ISHE Group",
+  "license": "MIT",
   "dependencies": {
     "axios": "^1.4.0",
     "react-toastify": "^9.1.3"

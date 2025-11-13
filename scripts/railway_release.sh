@@ -36,4 +36,11 @@ else
   echo "[railway_release] scripts/initialize_agent.py not found — skipping"
 fi
 
+echo "[railway_release] Initializing ISHE Group CRM agents"
+if [ -f scripts/initialize_crm_agents.py ]; then
+  python3 scripts/initialize_crm_agents.py || true
+else
+  echo "[railway_release] scripts/initialize_crm_agents.py not found — skipping"
+fi
+
 echo "[railway_release] Release tasks completed"

@@ -1,0 +1,33 @@
+# Railway Deployment Configuration for ISHE Group AI Platform
+# This configuration ensures proper deployment to Railway.com with Supabase integration
+
+# Build configuration
+build:
+  builder: DOCKERFILE
+  dockerfilePath: Dockerfile
+
+# Deployment configuration
+deploy:
+  startCommand: bash scripts/railway_release.sh && uvicorn main:app --host 0.0.0.0 --port $PORT
+  healthcheckPath: /health
+  healthcheckTimeout: 100
+  restartPolicyType: ON_FAILURE
+  restartPolicyMaxRetries: 10
+
+# Environment variables template
+# Add these in Railway dashboard under Variables section:
+#
+# Required:
+# - RAILWAY_TOKEN (for autonomous operations)
+# - SUPABASE_URL (Supabase project URL)
+# - SUPABASE_KEY (Supabase anon/service key)
+# - DATABASE_URL (Supabase Postgres connection string)
+# - REDIS_URL (Railway Redis plugin or external)
+# - OPENAI_API_KEY (for AI operations)
+# - JWT_SECRET_KEY (generate secure random string)
+# - FRONTEND_URL (auto-provided by Railway)
+#
+# Optional:
+# - GOOGLE_API_KEY
+# - ENABLE_SUPABASE_MEMORY=True
+# - ENVIRONMENT=production
