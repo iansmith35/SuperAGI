@@ -10,4 +10,5 @@ python superagi/tool_manager.py
 alembic upgrade head
 
 # Start the app
-exec uvicorn main:app --host 0.0.0.0 --port 8001 --reload
+# Use PORT environment variable if set (for Railway), otherwise default to 8001
+exec uvicorn main:app --host 0.0.0.0 --port ${PORT:-8001} --reload
