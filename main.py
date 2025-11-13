@@ -386,6 +386,11 @@ def github_client_id():
         git_hub_client_id = git_hub_client_id.strip()
     return {"github_client_id": git_hub_client_id}
 
+@app.get('/health')
+def health_check():
+    """Health check endpoint for Railway deployment"""
+    return {"status": "healthy"}
+
 # # __________________TO RUN____________________________
 # # uvicorn main:app --host 0.0.0.0 --port 8001 --reload
 
